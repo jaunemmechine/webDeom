@@ -1,0 +1,715 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>商业金融web 模板</title>
+
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        *{margin: 0;padding: 0;}
+        .navbar {
+            position: relative;
+            min-height: 50px;
+            margin-bottom: 0;
+            border: 1px solid transparent;
+        }
+
+        .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+            color: #fff;
+            background-color: #ffc155;
+        }
+
+        .banner {
+            background: #709DCA;
+            width: 101%;
+            height: 500px;
+        }
+        .banner .banner-img{
+            position: absolute;
+            top:300px;
+            bottom: 0;
+            left:33.3%;
+            right:0;
+
+        }
+
+        .banner .banner-title {
+            display: flex;
+            -webkit-justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+        }
+        .wrapper .service{
+            background: #fff;
+        }
+        .service .service-title{
+            display: flex;
+            -webkit-justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            color: #000;
+        }
+        .service-content>.row .content-mth{
+            margin-top: 10px;
+            height: 150px;
+            padding: 0 40px;
+        }
+        .about-content .about_btn{
+            margin-left: 10px;
+            border: 1px solid #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            opacity: .5;
+            color: #000;
+            cursor: pointer;
+            transition: translate 1s;
+        }
+        .about-content .about_btn:hover{
+            -ms-transform:scale(1.2);
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+            background: orange;
+            box-shadow: inset 0 -0.3rem 0 0 rgba(0, 0, 0, 0.2), 0 0.1rem 0 0 rgba(0, 0, 0, 0.2);
+        }
+        .about-content-text{
+            display: flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items: center;
+            margin-top: 20%;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 5%;
+        }
+        @media screen and (max-width: 667px){
+            .aboutImg{
+                width: 100%;
+                height: 100%;
+            }
+            .about-content{
+                height: 500px;
+            }
+            .banner .banner-img{
+                position: absolute;
+                top:400px;
+                bottom: 0;
+                left: 0;
+            }
+            .banner .banner-img>img{
+                width: 100%;
+                height: 50%;
+            }
+
+        }
+        .wrapper .choos{
+            background:#fff;
+        }
+        .wrapper .choos .choos-title{
+            display: flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+        }
+        .choos .choos-list{
+          width: 100%;
+
+        }
+        .choos .choos-list .choos-list-item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction:column;
+        }
+        .choos-list-item{
+            width: 33.3%;
+            float: left;
+        }
+        .choos-list-item ul{
+            text-align: center;
+        }
+        .choos-list-item ul .divider{
+            line-height: 1px;
+            border:1px solid #cccccc;
+            margin-top: 5px;
+        }
+        .choos-list-item ul li{
+            bottom: 5px;
+            margin-top: 5px;
+        }
+        .choos-list-item .choos-price{
+            color:#ffc155;
+        }
+        .choos-list-item .choos-price :nth-child(1){
+            font-size: 22px;
+            margin-top: 50px;
+        }
+        .choos-list-item .choos-price :nth-child(2){
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .choos-list .choos-list-item{
+            padding: 60px 40px;
+            border: 1px solid #cccccc;
+            -webkit-transition: -webkit-transform .2s;
+            transition: transform .1s;
+        }
+        .choos-list .choos-list-item:hover{
+            background: #709dca;
+            color:#fff;
+            -ms-transform:scale(1.2);
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+        .wrapper .works{
+            margin-top:15%;
+            background:#fff;
+        }
+        .works .works-title{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .works .works-step{
+            display: flex;
+            justify-content:space-around;
+
+        }
+        .works .works-step .works-step-item{
+            display: flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align: center;
+        }
+        .works .works-step-btn{
+            display: flex;
+            justify-content: center;
+            margin: 10% 0;
+        }
+        .client{
+            background: #ffc155;
+            padding-bottom: 8%;
+            padding-top: 8%;
+            width: 101%;
+        }
+        .client .client-title{
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items:center;
+            color:#fff;
+        }
+        .client .media{
+            background: #fff;
+            padding: 20px;
+            margin: 10px;
+        }
+        .client .media .Layer{
+            border-radius:50%;
+            width: 150px;
+            height:150px;
+        }
+        .media-body .article{
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+        .media-body .author-name :nth-child(1){
+            color:orange;
+            font-variant:small-caps;
+        }
+        .media-body .author-name :nth-child(2){
+            color:#999;
+            font-variant:small-caps;
+        }
+        .newsletter .newsletter-title{
+            display: flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items: center;
+            padding: 8% 0 3%;
+        }
+        .newsletter .map{
+            background: url('img/Layer13.png')no-repeat;
+            width: 100%;
+        }
+        .map .map-address{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5% 0 8% 0;
+        }
+        .map .map-address .map-text {
+            background: url(img/Shape4.png)no-repeat;
+            width: 289px;
+            height: 302px;
+            text-align: center;
+            padding-top: 40px;
+        }
+        .footer .footer-list li{
+            float: left;
+            padding-left: 50px;
+        }
+        .footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction:column;
+        }
+        .footer .footer-icon img{
+            padding-left:15px;
+        }
+        .copyright{
+            margin-top: 5%;
+            text-align: center;
+            padding: 10px;
+            background: #709dca;
+            width: 101%;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default container" style="margin-top: 10px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-list-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.png" width="45" height="45"  alt="Brand" style="margin-top: -15px;">
+            </a>
+        </div>
+        <div class="nav-list navbar-collapse collapse pull-right" id="nav-list-collapse">
+            <ul class="nav nav-pills">
+                <li class="active" id="home"><a href="#">Home</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#pricing">Pricing Table</a></li>
+                <li><a href="#works">How it work</a></li>
+                <li><a href="#client">Happy Clients </a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="wrapper">
+    <div class="banner">
+        <div class="banner-title">
+            <h2>Boost up your Local business</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum typesetting</p>
+        </div>
+        <div class="container">
+            <div class="row" style="margin-top: 5%">
+                <div class="col-md-3 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-user" ></span>
+                        <input type="text" class="form-control" placeholder="Full Name" >
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-envelope "> </span>
+                        <input type="text" class="form-control" placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-earphone "> </span>
+                        <input type="text" class="form-control" placeholder="Phone Number">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="input-group">
+                        <button type="button" class="form-control btn btn-warning">Request a quote</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="banner-img">
+                <img src="img/banner.png">
+            </div>
+
+        </div>
+    </div>
+    <div class="service container" id="service" style="margin-top: 10%">
+        <div class="service-title">
+            <h2>Our Services</h2>
+            <P>Lorem Ipsum is simply dummy Business industry.</P>
+        </div>
+        <div class="service-content" style="margin-top: 5%">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 content-mth">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" src="img/1.png" alt="..." style="width: 50px;height: 50px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Font-Awesome Icons</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting ind
+                                ustry. Lorem Ipsum has been the industry's standard dummy text ever
+                                since the 1500s, when an unknown printer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 content-mth">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" src="img/2.png" alt="..." style="width: 50px;height: 50px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Fully Responsive Design</h4>
+                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 content-mth">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" src="img/3.png" alt="..." style="width: 50px;height: 50px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Working Contact form</h4>
+                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will un
+                                cover many web sites still in their infancy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 content-mth">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" src="img/4.png" alt="..." style="width: 50px;height: 50px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Retina Ready icons here</h4>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                                or randomised words which don't look even slightly believable.
+                                If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 content-mth">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" src="img/5.png" alt="..." style="width: 50px;height: 50px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Friendly Code</h4>
+                            <p>Finibus Bonorum et Malorum" by Cicero are also reproduced in their
+                                exact original form, accompanied by English versions from the 1914 translation by H. Rackham</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 content-mth">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" src="img/6.png" alt="..." style="width: 50px;height: 50px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Flat trendy landing page Design</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+                                the 1500s, when an unknown printer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about" id="about">
+        <div class="row" style="background: #ffc155">
+            <img class="col-sm-6 aboutImg" src="img/about.png" alt="">
+            <div class="about-content col-sm-6">
+                <div class="about-content-text">
+                    <h2>Abour Us</h2>
+                    <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis cum debitis deleniti, doloribus ea et illum impedit maxime nesciunt nostrum, odit officiis provident quam quos ratione reiciendis temporibus voluptate!
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam, consequatur consequuntur dicta dolor eos eum incidunt ipsum laboriosam libero minus mollitia nihil odio possimus quidem reiciendis totam ut vitae?</p>
+                </div>
+                <span class="about_btn">READ MORE</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="choos container" id="pricing" style="margin-top: 8%">
+        <div class="choos-title">
+            <h2>Choos your price</h2>
+            <p style="color: #999;">Lorem Ipsum is simply dummy text of the printing typesetting .</p>
+        </div>
+        <div class="choos-list" style="margin-top: 5%">
+            <div class="choos-list-item">
+                <h3>BASIC PLAN</h3>
+                <p class="choos-price"><sup>$</sup><span>22</span></p>
+                <p>per month</p>
+                <ul class="list-unstyled">
+                    <li class="divider"></li>
+                    <li>1 account</li>
+                    <li class="divider"></li>
+                    <li>8 hour support</li>
+                    <li class="divider"></li>
+                    <li>custom cloud services</li>
+
+                </ul>
+                <button type="button" class="btn btn-warning ">GET STARTED</button>
+            </div>
+            <div class="choos-list-item">
+                <h3>PREMIUM PLAN</h3>
+                <p class="choos-price"><sup>$</sup><span>42</span></p>
+                <p>per month</p>
+                <ul class="list-unstyled">
+                    <li class="divider"></li>
+                    <li>2 account</li>
+                    <li class="divider"></li>
+                    <li>100mb storage</li>
+                    <li class="divider"></li>
+                    <li>custom cloud services</li>
+                </ul>
+                <button type="button" class="btn btn-warning">GET STARTED</button>
+            </div>
+            <div class="choos-list-item">
+                <h3>GOLD PLAN</h3>
+                <p class="choos-price"><sup>$</sup><span>62</span></p>
+                <p>per month</p>
+                <ul class="list-unstyled">
+                    <li class="divider"></li>
+                    <li>8 account</li>
+                    <li class="divider"></li>
+                    <li>24 hour support</li>
+                    <li class="divider"></li>
+                    <li>custom cloud services</li>
+
+                </ul>
+                <button type="button" class="btn btn-warning">GET STARTED</button>
+            </div>
+        </div>
+    </div>
+    <div class="works" id="works">
+        <div class="container">
+            <div class="works-title">
+                <h2>HOW IT WORKS</h2>
+                <p>Lorem lpsum is simply dummy Business industry</p>
+            </div>
+            <div class="works-step" style="margin-top: 8%">
+                <div class="works-step-item">
+                    <img src="img/icon1.png" alt="">
+                    <h4>STEP 1</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting ind
+                        ustry. Lorem Ipsum has been</p>
+                </div>
+                <div class="works-step-arrow">
+                    <img src="img/Arrow_1.png" alt="" style="margin-top: 20px">
+                </div>
+                <div class="works-step-item">
+                    <img src="img/Icon2.png" alt="">
+                    <h4>STEP 2</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting ind
+                        ustry. Lorem Ipsum has been</p>
+                </div>
+                <div class="works-step-arrow">
+                    <img src="img/Arrow_2.png" alt="" style="margin-top: 120px">
+                </div>
+                <div class="works-step-item">
+                    <img src="img/Icon3.png" alt="">
+                    <h4>STEP 3</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting ind
+                        ustry. Lorem Ipsum has been</p>
+                </div>
+                <div class="works-step-arrow">
+                    <img src="img/Arrow_3.png" alt="" style="margin-top: 20px">
+                </div>
+                <div class="works-step-item">
+                    <img src="img/Icon4.png" alt="">
+                    <h4>STEP 4</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting ind
+                        ustry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+            <div class="works-step-btn">
+                <button type="button" class="btn btn-warning btn-lg">GET START NOW</button>
+            </div>
+        </div>
+    </div>
+    <div class="client" id="client">
+        <div class="client-title">
+            <h2>HAPPY CLIENTS</h2>
+            <P>We are explain who is using our business solutions</P>
+        </div>
+        <div class="container" style="margin-top: 3%">
+            <div class="row client-content">
+                <div class="col-md-6 col-sm-12">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="javascript:;">
+                                <img class="media-object Layer" src="img/Layer1.png" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p class="article">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                                it to make.
+                                a type specimen book.
+
+                                , but also the leap into electronic typesetting, remaining essentially unchanged. ”</p>
+                            <p class="author-name"><span>Darwin Michle,</span> <span>Project manager</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="javascript:;">
+                                <img class="media-object Layer" src="img/Layer2.png" alt="">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p class="article">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, wen an unknown printer took a galley of type and scrambled
+                                to make a type specimen book.
+
+                                , but also the leap into electronic typesetting, remaining essentially unchanged. ”</p>
+                            <p class="author-name"><span>Madam Elisabath,</span><span>Creative Director</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="javascript:;">
+                                <img class="media-object Layer" src="img/Layer3.png" alt="" >
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p class="article">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                                it to make.
+                                a type specimen book.
+
+                                , but also the leap into electronic typesetting, remaining essentially unchanged. ”</p>
+                            <p class="author-name"><span>Clips arter,</span><span>Lipsum directer</span></p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="javascript:;">
+                                <img class="media-object Layer" src="img/Layer4.png" alt="">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p class="article">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, wen an unknown printer took a galley of type and scrambled
+                                to make a type specimen book.
+
+                                , but also the leap into electronic typesetting, remaining essentially unchanged. ”</p>
+                            <p class="author-name"><span>zam cristafr,</span><span>manager</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="newsletter" id="contact">
+        <div class="newsletter-title">
+            <h2>NEWSLETTER</h2>
+            <P>Lorem ipsum dolor sit amet</P>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-user" ></span>
+                        <input type="text" class="form-control" placeholder="Name" >
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-envelope "> </span>
+                        <input type="text" class="form-control" placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="input-group">
+                        <button type="button" class="form-control btn btn-warning">Request a quote</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="map container">
+            <div class="map-address">
+                <div class="map-text" >
+                        <p style="color: #fff;">ADDRESS</p>
+                        <p style="color: #999;">Business street</p>
+                        <p style="color: #999;">Second north section</p>
+                        <p style="color: #999;">Bavani nagar. 88769</p>
+                        <p style="color: #999;">Call : +987-9976-999</p>
+                        <p style="color: orange;">info@businessface.com</p>
+                    </div>
+                <img class="map-logo" src="img/Logo2.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <ul class="list-unstyled footer-list">
+            <li>HOME</li>
+            <li>SERVICE</li>
+            <li>ABOUT US</li>
+            <li>PRICING TABLE</li>
+            <li>HOW IT WORK</li>
+            <li>HAPPY CLIENITS</li>
+            <li>CONTACT US</li>
+        </ul>
+        <div>
+            <span style="font-size: 18px;font-weight: bold" class="glyphicon glyphicon-earphone"></span>
+            <span style="font-size: 24px;font-weight: bold">+987 9976 999</span>
+        </div>
+        <div class="footer-icon">
+            <img src="img/f1.png" alt="">
+            <img src="img/f2.png" alt="">
+            <img src="img/f3.png" alt="">
+            <img src="img/f4.png" alt="">
+        </div>
+    </div>
+    <div class="copyright">
+        <p>All contents &copy; copyright 2017 Business Theme. All rights reserved Designed by : akhilwebfolio</p>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $('.nav li').on('click', function () {
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
+    })
+</script>
+</body>
+</html>
